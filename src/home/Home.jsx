@@ -1,21 +1,31 @@
-import NavBar from "../components/NavBar";
-import tea from "../assets/images/alpha.png";
-import About from "../components/About";
-import Products from "../components/Products";
-import Extension from "../components/Extension";
-import Awards from "../components/Awards";
-import FAQs from "../components/FAQs";
-import Footer from "../components/Footer";
-import Contact from "../components/Contact";
-
-const screenWidth = window.innerWidth();
-
-
+import React, { useEffect, useState } from 'react';
+import NavBar from '../components/NavBar';
+import tea from '../assets/images/alpha.png';
+import About from '../components/About';
+import Products from '../components/Products';
+import Extension from '../components/Extension';
+import Awards from '../components/Awards';
+import FAQs from '../components/FAQs';
+import Footer from '../components/Footer';
+import Contact from '../components/Contact';
 
 const Home = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   console.log(screenWidth);
-  
+
   return (
     <div>
       {screenWidth < 786 && <NavBar />}
