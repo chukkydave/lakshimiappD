@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <div>
-      {screenWidth < 786 && <NavBar />}
+      {screenWidth > 786 && <NavBar />}
       <div className="bg-slate-900 from-blue-900 to-gray-700 h-[700px] w-full bg-cover bg-center relative">
         <img
           src={tea}
